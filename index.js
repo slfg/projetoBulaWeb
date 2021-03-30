@@ -5,7 +5,7 @@ const searchInput = getElement('.search-input'),
     container = getElement('.datamed'),
     erroMessage = getElement('.error');
 
-    let element = document.getElementById('info')
+let element = document.getElementById('info')
 
 var medic,
     datamed,
@@ -26,18 +26,24 @@ function requestMedInfo(url, name) {
 
 function createCard() {
     element.innerHTML = `
-            <h1 class="name"> Brand Name: ${datamed.results[0].products[0].brand_name}</h1>
-            <h2 class="marketing"> Marketing Status: ${datamed.results[0].products[0].marketing_status}</h2>
-            <h3 class="rest">Strength of Medication: ${datamed.results[0].products[0].active_ingredients[0].strength}</h3>
-            <h3 class="rest">Route of Medication: ${datamed.results[0].products[0].route}</h3>
-            <h3 class="rest"> Dosage Form: ${datamed.results[0].products[0].dosage_form}</h3>`;
+            <div class="boxInfo">
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Brand Name: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].brand_name} \n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold">Marketing Status: \n</span> 
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].marketing_status}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Strength of Medication: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].active_ingredients[0].strength}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Route of Medication: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].route}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Dosage Form: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].dosage_form} \n</span></div>`;
     return card;
 }
 
 function startApp(medic) {
     requestMedInfo(url, medic);
 
-    setTimeout(function () {
+    setTimeout(function() {
         container.innerHTML = createCard();
     }, 2000);
 }
