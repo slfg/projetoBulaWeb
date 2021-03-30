@@ -1,31 +1,71 @@
-.painel{
+@font-face {
+    font-family: Montserrat;
+    src: url(fonts/Montserrat-Medium.ttf);
+}
+
+@font-face {
+    font-family: Montserrat-Bold;
+    src: url(fonts/Montserrat-ExtraBold.ttf);
+}
+
+#just-line-break {
+    white-space: pre-line;
+}
+
+p {
+    font-size: 17px;
+}
+
+span {
+    font-size: 22px;
+}
+
+.painel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin-left: 500px;
-    margin-top: 5px;
-    background-color: whitesmoke;
-    width: 300px;
-    border: 15px solid #138484;
+    background-color: #F8F8FF;
+    width: 400px;
+    border: 10px solid;
+    border-radius: 15px 50px;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-color: #13b6ae;
     padding: 50px;
 }
 
-.text{
+.text {
+    font-family: 'Montserrat', monospace;
+    color: #0696a3;
+    text-align: justify;
+    top: 50%;
+    left: 50%;
+}
+
+.box {
+    font-family: 'Montserrat-Bold';
+    top: 50%;
+    left: 50%;
     text-align: center;
-    background-color:#138484;
-    width: 300px;
-    border: 5px solid #138484;
+    background-image: linear-gradient(to top, #0b8793, #73C8A9);
     color: white;
 }
 
-h1 {
+.boxInfo {
+    padding: 25px;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
     text-align: center;
-    background-color: #138484;
+    background-image: radial-gradient(circle, rgb(81, 143, 120) 0%, rgba(11, 135, 147, 1) 100%);
     color: white;
-  }
+}
 
-  h2 {
-    text-align: center;
-  }
-
-  h3 {
-    text-align: center;
-  }
+html {
+    height: 100%;
+    background: radial-gradient(rgb(11, 219, 138), transparent), radial-gradient(ellipse at bottom, rgb(77, 159, 12), transparent);
+    background-image: linear-gradient(to top right, rgba(174, 255, 224, 0.75), rgba(11, 219, 138, 0.75)), url("pexels-photo-208512.jpeg");
+    display: flex;
+}
