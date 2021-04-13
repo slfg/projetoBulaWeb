@@ -12,6 +12,12 @@
     white-space: pre-line;
 }
 
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+}
+
 p {
     font-size: 17px;
 }
@@ -27,7 +33,7 @@ span {
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: #F8F8FF;
-    width: 400px;
+    width: 500px;
     border: 10px solid;
     border-radius: 15px 50px;
     border-image-slice: 1;
@@ -39,9 +45,15 @@ span {
 .text {
     font-family: 'Montserrat', monospace;
     color: #0696a3;
-    text-align: justify;
+    text-align: center;
     top: 50%;
     left: 50%;
+}
+
+.dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .box {
@@ -61,6 +73,10 @@ span {
     text-align: center;
     background-image: radial-gradient(circle, rgb(81, 143, 120) 0%, rgba(11, 135, 147, 1) 100%);
     color: white;
+}
+
+body {
+    background-color: transparent;
 }
 
 html {
