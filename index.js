@@ -10,7 +10,32 @@ let element = document.getElementById('info')
 
 var medic,
     datamed,
-    card;
+    card,
+    idioma = {
+        eng: {
+            titulo: "Digital Medicine Leaflet",
+            intro: "The digital medicine leaflet is designed to simplify and share the most relevant information of medications in a simple way and easy to understand!",
+            searchbutton: "Search",
+            searchinput: "Insert the medication name",
+            error: "Nothing found",
+            dropdownMenuLink: "Language"
+        }
+    },
+    f5 = document.querySelectorAll("[f5]");
+
+if (window.location.hash) {
+    if (window.location.hash === "#eng") {
+        intro.textContent = idioma.eng.intro
+        titulo.textContent = idioma.eng.titulo
+        searchButton.textContent = idioma.eng.searchbutton
+        searchinput.placeholder = idioma.eng.searchinput
+        dropdownMenuLink.textContent = idioma.eng.dropdownMenuLink
+    }
+}
+
+window.onhashchange = function() {
+    location.reload();
+};
 
 function getElement(element) {
     return document.querySelector(element);
@@ -27,10 +52,22 @@ function requestMedInfo(url, name) {
 
 function createCard() { // Essa parte é onde é postado no HTML as informações do remédio, como podem ver é uma mistura de html com javascript (html para a formatação, js para mostrar as informaçÕes)
     if (datamed.results == null) {
-        element.innerHTML = `
-            <div class="boxInfo"><span id="just-line-break" style="font-size:30px">⚠\n</span><span style="font-family:Montserrat-Bold">Nada encontrado</span></div>`
+        if (window.location.hash) {
+            if (window.location.hash === "#eng") {
+                element.innerHTML = `
+            <div class="boxInfo"><span id="just-line-break" style="font-size:30px">⚠\n</span><span id="error" style="font-family:Montserrat-Bold">Nothing Found</span></div>`
+            } else {
+                element.innerHTML = `
+            <div class="boxInfo"><span id="just-line-break" style="font-size:30px">⚠\n</span><span id="error" style="font-family:Montserrat-Bold">Nada encontrado</span></div>`
+            }
+        } else {
+            element.innerHTML = `
+        <div class="boxInfo"><span id="just-line-break" style="font-size:30px">⚠\n</span><span id="error" style="font-family:Montserrat-Bold">Nada encontrado</span></div>`
+        }
     } else {
-        element.innerHTML = `
+        if (window.location.hash) {
+            if (window.location.hash === "#eng") {
+                element.innerHTML = `
             <div class="boxInfo">
             <span id="just-line-break" style="font-family:Montserrat-Bold"> Brand Name: \n</span>
             <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].brand_name} \n \n </span>
@@ -42,7 +79,35 @@ function createCard() { // Essa parte é onde é postado no HTML as informaçõe
             <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].route}\n \n </span>
             <span id="just-line-break" style="font-family:Montserrat-Bold"> Dosage Form: \n</span>
             <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].dosage_form} \n</span></div>`;
-        return card;
+                return card;
+            } else {
+                element.innerHTML = `
+            <div class="boxInfo">
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Nome Comercial: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].brand_name} \n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold">Status comercial: \n</span> 
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].marketing_status}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Força da medicação: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].active_ingredients[0].strength}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Forma de ingerir: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].route}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Forma de dosagem: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].dosage_form} \n</span></div>`;
+            }
+        } else {
+            element.innerHTML = `
+            <div class="boxInfo">
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Nome Comercial: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].brand_name} \n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold">Status comercial: \n</span> 
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].marketing_status}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Força da medicação: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].active_ingredients[0].strength}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Forma de ingerir: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].route}\n \n </span>
+            <span id="just-line-break" style="font-family:Montserrat-Bold"> Forma de dosagem: \n</span>
+            <span id="just-line-break" style="font-family:Montserrat"> ${datamed.results[0].products[0].dosage_form} \n</span></div>`;
+        }
     }
 }
 
