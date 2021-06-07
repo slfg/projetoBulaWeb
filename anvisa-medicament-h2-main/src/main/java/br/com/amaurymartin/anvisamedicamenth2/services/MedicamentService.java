@@ -175,5 +175,12 @@ public class MedicamentService {
 
 		return formatedCNPJ;
 	}
+	
+	public Medicament insert(Medicament medz) {
+		Medicament medicament = new Medicament(medz.getId(), medz.getTx_princ_ativo(), medz.getTx_cnpj(), medz.getTx_lab(), medz.getCd_ggrem(), medz.getCd_reg(), medz.getCd_ean(), medz.getTx_prod(), medz.getTx_conc(), medz.getTx_forma_farma(), medz.getTx_apres(), medz.getTx_class_terap(), medz.getTx_tipo_prod(), medz.getTx_tarja());
+		medicament = medicamentRepository.save(medicament);
+		return new Medicament(medicament);
+		
+	}
 
 }

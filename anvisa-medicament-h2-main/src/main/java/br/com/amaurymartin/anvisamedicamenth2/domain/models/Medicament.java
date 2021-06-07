@@ -69,7 +69,7 @@ public class Medicament implements Serializable {
 	@Column(name = "tx_tipo_prod", columnDefinition = "text", nullable = false)
 	private String tx_tipo_prod;
 	
-	@Column(name = "bl_restr_hosp", nullable = false)
+	@Column(name = "bl_restr_hosp", nullable = true)
 	private Boolean bl_restr_hosp;
 	
 	@Column(name = "bl_comerc", nullable = true)
@@ -82,6 +82,42 @@ public class Medicament implements Serializable {
 		
 	}
 	
+	public Medicament(Integer id, String tx_princ_ativo, String tx_cnpj, String tx_lab, String cd_ggrem, String cd_reg, String cd_ean, String tx_prod, String tx_conc, String tx_forma_farma, String tx_apres, String tx_class_terap, String tx_tipo_prod, String tx_tarja) {
+		super();
+		this.id = id;
+		this.tx_princ_ativo = tx_princ_ativo;
+		this.tx_cnpj = tx_cnpj;
+		this.tx_lab = tx_lab;
+		this.cd_ggrem = cd_ggrem;
+		this.cd_reg = cd_reg;
+		this.cd_ean = cd_ean;
+		this.tx_prod = tx_prod;
+		this.tx_conc = tx_conc;
+		this.tx_forma_farma = tx_forma_farma;
+		this.tx_apres = tx_apres;
+		this.tx_class_terap = tx_class_terap;
+		this.tx_tipo_prod = tx_tipo_prod;
+		this.tx_tarja = tx_tarja;
+	}
+	
+	public Medicament (Medicament entity) {
+		super();
+		this.id = entity.getId();
+		this.tx_princ_ativo = entity.getTx_princ_ativo();
+		this.tx_cnpj = entity.getTx_cnpj();
+		this.tx_lab = entity.getTx_lab();
+		this.cd_ggrem = entity.getCd_ggrem();
+		this.cd_reg = entity.getCd_reg();
+		this.cd_ean = entity.getCd_ean();
+		this.tx_prod = entity.getTx_prod();
+		this.tx_conc = entity.getTx_conc();
+		this.tx_forma_farma = entity.getTx_forma_farma();
+		this.tx_apres = entity.getTx_apres();
+		this.tx_class_terap = entity.getTx_class_terap();
+		this.tx_tipo_prod = entity.getTx_tipo_prod();
+		this.tx_tarja = entity.getTx_tarja();
+	}
+
 	public Integer getId() {
 		return id;
 	}

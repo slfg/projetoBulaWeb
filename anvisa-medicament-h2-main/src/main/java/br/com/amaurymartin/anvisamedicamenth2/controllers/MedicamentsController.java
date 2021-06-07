@@ -3,7 +3,10 @@ package br.com.amaurymartin.anvisamedicamenth2.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +20,19 @@ public class MedicamentsController {
 
   @Autowired
 	private MedicamentService medicamentService;
+  
+  @PostMapping
+	public ResponseEntity<Medicament> insert(@RequestBody Medicament medicament) {
+	  	medicament = medicamentService.insert(medicament);
+	  	return ResponseEntity.ok().body(medicament);
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Medicament> listAll() {
 		return medicamentService.findAll();
 	}
-
+	
+	 
 	@RequestMapping(value = "/princ/{tx_princ_ativo}", method = RequestMethod.GET)
 	public List<Medicament> findfindByPrinc(@PathVariable String tx_princ_ativo) {
 		List<Medicament> medicaments = medicamentService.findByPrinc(tx_princ_ativo);
@@ -127,5 +137,7 @@ public class MedicamentsController {
 
 		return medicaments;
 	}
+	
+	
 
 }
