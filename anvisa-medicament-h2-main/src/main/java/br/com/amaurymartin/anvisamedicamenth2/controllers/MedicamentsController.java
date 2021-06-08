@@ -18,10 +18,10 @@ import br.com.amaurymartin.anvisamedicamenth2.services.MedicamentService;
 @RequestMapping(value = "/meds")
 public class MedicamentsController {
 
-  @Autowired
+	@Autowired
 	private MedicamentService medicamentService;
   
-  @PostMapping
+  	@PostMapping
 	public ResponseEntity<Medicament> insert(@RequestBody Medicament medicament) {
 	  	medicament = medicamentService.insert(medicament);
 	  	return ResponseEntity.ok().body(medicament);
