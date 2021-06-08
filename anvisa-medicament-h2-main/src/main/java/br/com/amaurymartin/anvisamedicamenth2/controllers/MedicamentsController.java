@@ -1,25 +1,52 @@
 package br.com.amaurymartin.anvisamedicamenth2.controllers;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.amaurymartin.anvisamedicamenth2.domain.models.Medicament;
+import br.com.amaurymartin.anvisamedicamenth2.repositories.MedicamentRepository;
 import br.com.amaurymartin.anvisamedicamenth2.services.MedicamentService;
 
 @RestController
 @RequestMapping(value = "/meds")
 public class MedicamentsController {
 
-	@Autowired
-	private MedicamentService medicamentService;
+	@Autowired MedicamentService medicamentService;
+	
+	@Autowired MedicamentRepository medicamentRepository;
+
+	@DeleteMapping("/{id}")
+	public String delete(@PathVariable int id) {
+		Optional<Medicament> medicament = medicamentRepository.findById(id);
+		if(medicament.isPresent()) {
+			medicamentRepository.delete(medicament.get());
+			return "Medicament is deleted with id "+id;
+		}else {
+			throw new RuntimeException("Medicament not found for the id "+id);
+		}
+	}
+	
+	@PutMapping(value = "/{id}")
+	@Transactional
+	public ResponseEntity<Medicament> update(@RequestBody Medicament medicament){
+	  	medicament = medicamentRepository.save(medicament);
+	  	return ResponseEntity.ok().body(medicament);
+	}
+
   
   	@PostMapping
 	public ResponseEntity<Medicament> insert(@RequestBody Medicament medicament) {

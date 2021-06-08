@@ -12,6 +12,9 @@ import br.com.amaurymartin.anvisamedicamenth2.domain.models.Medicament;
 @Repository
 public interface MedicamentRepository extends JpaRepository<Medicament, Integer> {
 
+  @Query(value = "select * from meds m where m.id_med like concat ('%', :id_med, '%')", nativeQuery = true)
+  public List<Medicament> findById(@Param("id_med") Long id_med);
+  
   @Query(value = "select * from meds m where m.tx_princ_ativo like concat ('%', :tx_princ_ativo, '%')", nativeQuery = true)
   public List<Medicament> findByPrinc(@Param("tx_princ_ativo") String tx_princ_ativo);
 
