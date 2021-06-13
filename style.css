@@ -23,7 +23,7 @@ p {
 }
 
 span {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .painel {
@@ -33,7 +33,7 @@ span {
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: #F8F8FF;
-    width: 500px;
+    width: 650px;
     border: 10px solid;
     border-radius: 15px 50px;
     border-image-slice: 1;
@@ -73,6 +73,14 @@ span {
     text-align: center;
     background-image: radial-gradient(circle, rgb(81, 143, 120) 0%, rgba(11, 135, 147, 1) 100%);
     color: white;
+}
+
+.borderlessButton {
+    font-size: 2rem;
+    background: none;
+    border: 0px solid white;
+    left: 150px;
+    top: 80px;
 }
 
 body {
