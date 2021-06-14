@@ -21,19 +21,18 @@
         <h1 id="titulo" class="box">Bula Digital</h1>
 
         <p id="intro" class="text">A Bula Digital é responsável por simplificar e compartilhar as informações mais relevantes dos medicamentos, de maneira simples e de fácil acesso!</p>
-        <p>&ensp;</p>
-        <form action="" class="search">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Insira nome da medicação" id="searchinput">
-                <button class="btn btn-primary" type="button" id="searchButton">Buscar</button>
-            </div>
+
+        <form action="" class="search-bar">
+            <input type="search" name="search" pattern=".*\S.*" required id="searchinput">
+            <button class="search-btn" type="submit"><span>Search</span></button>
+
         </form>
 
-        <p>&ensp;</p>
 
         <div id='info'></div>
+
     </div>
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
         Idioma
         </a>
@@ -41,9 +40,9 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="#eng" data-reload>English</a></li>
             <li><a class="dropdown-item" href="#ptbr" data-reload>Português-Brasil</a></li>
-        </ul>
+        </ul> -->
     </div>
-    <script src="index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 
 </body>
 
