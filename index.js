@@ -34,11 +34,11 @@ function createCard() {
         element.innerHTML = `
                 <div class="boxInfo">
                 <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Produto: \n</span>
-                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].prodWithConc} \n \n</span>
+                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].prodWithConc} \n</span>
                 <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Apresentação: \n</span>
-                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_apres} \n \n</span>  
+                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_apres} \n</span>  
                 <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Classe terapêutica: \n</span>
-                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_class_terap} \n \n</span>
+                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_class_terap} \n</span>
                 <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Tarja: \n</span>
                 <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_tarja} \n</span>
                 <button class="borderlessButton" onclick='prevMed()'>◀</button>
