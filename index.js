@@ -32,18 +32,18 @@ function createCard() {
         <span id="just-line-break" style="font-family:Montserrat-Bold">❌\n Nada encontrado</span>`
     } else {
         element.innerHTML = `
-                <div class="boxInfo">
-                <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Produto: \n</span>
-                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].prodWithConc} \n</span>
-                <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Apresentação: \n</span>
-                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_apres} \n</span>  
-                <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Classe terapêutica: \n</span>
-                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_class_terap} \n</span>
-                <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Tarja: \n</span>
-                <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_tarja} \n</span>
-                <button class="borderlessButton" onclick='prevMed()'>◀</button>
-                <span id="just-line-break" style="font-family:Montserrat">${num}</span>
-                <button class="borderlessButton" onclick='num++; createCard()'>▶</button>`
+        <div class="boxInfo">
+        <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Produto: \n</span>
+        <span id="just-line-break" style="font-family:Montserrat">${datamed[num].prodWithConc} \n</span>
+        <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Apresentação: \n</span>
+        <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_apres} \n</span>  
+        <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Classe terapêutica: \n</span>
+        <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_class_terap} \n</span>
+        <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Tarja: \n</span>
+        <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_tarja} \n</span></div>
+        <button class="fas fa-chevron-circle-left" onclick='prevMed()'></button>
+        <span id="just-line-break" style="font-family:Montserrat; color:black;">${num}</span>
+        <button class="fas fa-chevron-circle-right" onclick='num++; createCard()'></button>`
     }
     return card;
 }
