@@ -35,6 +35,8 @@ function createCard() {
         <div class="boxInfo">
         <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Produto: \n</span>
         <span id="just-line-break" style="font-family:Montserrat">${datamed[num].prodWithConc} \n</span>
+        <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Laboratório: \n</span>
+        <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_lab} \n</span>  
         <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Apresentação: \n</span>
         <span id="just-line-break" style="font-family:Montserrat">${datamed[num].tx_apres} \n</span>  
         <span id="just-line-break" style="font-family:Montserrat-Bold">✓ Classe terapêutica: \n</span>
